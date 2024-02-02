@@ -155,10 +155,12 @@ main aside {
 
 main article {
     background-color: rgba(255, 255, 255, .9);
+    flex-grow: 1;
 }
 
 main aside {
     background-color: rgba(226, 226, 226, 0.9);
+    min-height: 5rem;
 }
 
 /* Rodapé (footer) */
@@ -207,10 +209,6 @@ Telas de 768px ou mais...
     /* Conteúdo principal */
     main {
         flex-direction: row;
-    }
-
-    main article {
-        flex-grow: 1;
     }
 
     main aside {
