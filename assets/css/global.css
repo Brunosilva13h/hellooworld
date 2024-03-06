@@ -187,9 +187,13 @@ footer>div>a {
 }
 
 /* Classes de uso geral */
-.red {}
+.red {
+    color: red;
+}
 
-.center {}
+.center {
+    text-align: center;
+}
 
 /* Elementos de formulários */
 input,
@@ -221,12 +225,13 @@ Telas de 768px ou mais...
         flex-direction: row;
         justify-content: space-between;
     }
-   
+
     .header-search {}
 
     .header-search form {
         display: flex;
-
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
     }
 
     .header-search form input {
@@ -234,7 +239,6 @@ Telas de 768px ou mais...
     }
 
 }
-
 
 /*
 Responsividade
