@@ -4,14 +4,13 @@
  * Copie aqui as suas prórias chaves do Firebase.
  **/
 const firebaseConfig = {
-    apiKey: "AIzaSyB_Dk7S89N7wQk_o3cntUH5-7v2IWd_P8Q",
-    authDomain: "hellowordblog.firebaseapp.com",
-    databaseURL: "https://hellowordblog-default-rtdb.firebaseio.com",
-    projectId: "hellowordblog",
-    storageBucket: "hellowordblog.appspot.com",
-    messagingSenderId: "238708085735",
-    appId: "1:238708085735:web:8c7fdcd4b63159275fe342"
-};
+    apiKey: "AIzaSyCSnZkzd2CRDI2EFQ6a_A1t5C-GnVJGM4s",
+    authDomain: "helloword-77420.firebaseapp.com",
+    projectId: "helloword-77420",
+    storageBucket: "helloword-77420.appspot.com",
+    messagingSenderId: "641177297902",
+    appId: "1:641177297902:web:3f4f39567102018b8664ff"
+  };
 
 // Inicializa o Firebase
 firebase.initializeApp(firebaseConfig);
