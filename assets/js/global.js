@@ -1,16 +1,16 @@
-
 /**
  * Chaves de configuração do Firebase
  * Copie aqui as suas prórias chaves do Firebase.
  **/
 const firebaseConfig = {
-    apiKey: "AIzaSyCSnZkzd2CRDI2EFQ6a_A1t5C-GnVJGM4s",
-    authDomain: "helloword-77420.firebaseapp.com",
-    projectId: "helloword-77420",
-    storageBucket: "helloword-77420.appspot.com",
-    messagingSenderId: "641177297902",
-    appId: "1:641177297902:web:3f4f39567102018b8664ff"
-  };
+    apiKey: "AIzaSyB_Dk7S89N7wQk_o3cntUH5-7v2IWd_P8Q",
+    authDomain: "hellowordblog.firebaseapp.com",
+    databaseURL: "https://hellowordblog-default-rtdb.firebaseio.com",
+    projectId: "hellowordblog",
+    storageBucket: "hellowordblog.appspot.com",
+    messagingSenderId: "238708085735",
+    appId: "1:238708085735:web:8c7fdcd4b63159275fe342"
+};
 
 // Inicializa o Firebase
 firebase.initializeApp(firebaseConfig);
@@ -66,4 +66,17 @@ function notLogged() {
     userIcon.style.display = 'inline';
     // Altera a label para entrar
     userLabel.innerHTML = 'Entrar';
+}
+
+// Função que converte datas do Firebase (timestamp) para pt-BR
+function convertTimestampToDateFormat(timestamp) {
+    const date = new Date(timestamp);
+
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const year = date.getFullYear();
+    const hour = date.getHours().toString().padStart(2, '0');
+    const min = date.getMinutes().toString().padStart(2, '0');
+
+    return `${day}/${month}/${year} às ${hour}:${min}`;
 }
