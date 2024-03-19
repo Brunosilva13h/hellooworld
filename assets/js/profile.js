@@ -62,12 +62,6 @@ function viewProfile() {
 function fbLogout() {
 
     // Para desconectar um usuário, chame signOut
-    firebase.auth().signOut()
-        .then(() => {
-            // Sign-out successful.
-        })
-        .catch((error) => {
-            // An error happened.
-        });
+    firebase.auth().signOut();
 
 }
