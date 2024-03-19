@@ -1,7 +1,5 @@
 <?php
 
-echo '<h2 id="comment">Comentários</h2><div id="commentBox">BISCOITO</div>';
-
 // Query que recebe todos os comentários do artigo atual
 $sql = <<<SQL
 
@@ -22,26 +20,22 @@ $res = $conn->query($sql);
 // Conta o número de comentários
 $cmt_total = $res->num_rows;
 
-// Conforme o número de comentários.
-if ($cmt_total == 0)
-    $view_total =  '<h5>Nenhum comentário</h5><p class="center">Seja o(a) primeiro(a) a comentar.</p>';
-elseif ($cmt_total == 1)
-    $view_total =  '<h5>1 comentário</h5>';
-else
-    $view_total =  "<h5>{$cmt_total} comentários</h5>";
+// Subtítulo conforme o número de comentários.
+if ($cmt_total == 0) $view_total = '<h5>Nenhum comentário</h5>';
+elseif ($cmt_total == 1) $view_total = '<h5>1 comentário</h5>';
+else $view_total = "<h5>{$cmt_total} comentários</h5>";
 
-// Exibe o total de comentários
-echo $view_total;
-
+// Se existem comentários:
 if ($cmt_total > 0) :
 
     // Loop para iterar os comentários
+    $comments_view = '';
     while ($cmt = $res->fetch_assoc()) :
 
         // Sanitiza comentário antes de exibir
         $cmt_content = htmlspecialchars(trim($cmt['cmt_content']));
 
-        echo <<<HTML
+        $comments_view .= <<<HTML
 
 <div class="cmt_box">
     <div class="cmt_header">
@@ -55,4 +49,18 @@ HTML;
 
     endwhile;
 
+// Se não existem comentários
+else :
+
+    $comments_view = '<p class="center">Seja o(a) primeiro(a) a comentar.</p>';
+
 endif;
+
+?>
+
+<div class="comment_section">
+    <h2 id="comment">Comentários</h2>
+    <div id="commentBox"></div>
+    <?php echo $view_total ?>
+    <?php echo html_entity_decode($comments_view) ?>
+</div>
