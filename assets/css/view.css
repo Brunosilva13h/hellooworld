@@ -58,11 +58,11 @@
 }
 
 .aside_article div {
- background-color: white; 
- padding: .5rem;
- border-radius: .35rem;
- cursor: pointer;
- margin-bottom: 1rem;
+  background-color: white;
+  padding: .5rem;
+  border-radius: .35rem;
+  cursor: pointer;
+  margin-bottom: 1rem;
 }
 
 .aside_article div:hover {
@@ -112,4 +112,15 @@
 
 #commentForm:invalid textarea {
   background-color: rgb(255, 230, 230);
+}
+
+/* Atividade 3) */
+.authordate {
+  display: block;
+}
+
+@media screen and (min-width: 768px) {
+  .authordate {
+    text-align: right;
+  }
 }

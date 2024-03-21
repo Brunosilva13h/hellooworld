@@ -83,6 +83,7 @@ require('_header.php');
 </article>
 
 <aside>
+    
     <?php require('widgets/_mostviewed.php') ?>
 </aside>
 

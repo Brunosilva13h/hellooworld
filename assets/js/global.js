@@ -12,6 +12,7 @@ const firebaseConfig = {
     appId: "1:238708085735:web:8c7fdcd4b63159275fe342"
 };
 
+
 // Inicializa o Firebase
 firebase.initializeApp(firebaseConfig);
 
@@ -37,10 +38,16 @@ firebase.auth().onAuthStateChanged((user) => {
     }
 });
 
+// Evita o reenvio dos formulários ao atualizar a página
+if (window.history.replaceState) {
+    window.history.replaceState(null, null, window.location.href);
+}
+
 // Função que trata o usuário logado
 function isLogged(user) {
     // Altera href do link
-    userAccess.href = `profile.php?ref=${location.href}`;
+    // Atividade 4) uid=${user.uid}
+    userAccess.href = `profile.php?uid=${user.uid}&ref=${location.href}`;
     // Altera title do link
     userAccess.title = `Ver perfil de ${user.displayName}`;
     // Oculta o ícone de login
@@ -71,13 +78,11 @@ function notLogged() {
 // Função que converte datas do Firebase (timestamp) para pt-BR
 function convertTimestampToDateFormat(timestamp) {
     const date = new Date(timestamp);
-
     const day = date.getDate().toString().padStart(2, '0');
     const month = (date.getMonth() + 1).toString().padStart(2, '0');
     const year = date.getFullYear();
     const hour = date.getHours().toString().padStart(2, '0');
     const min = date.getMinutes().toString().padStart(2, '0');
-
     return `${day}/${month}/${year} às ${hour}:${min}`;
 }
 
